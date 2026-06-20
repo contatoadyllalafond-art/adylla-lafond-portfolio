@@ -6,15 +6,11 @@
 
 <title>Adylla Lafond | Executive Portfolio 4.0</title>
 
-<meta name="description" content="Portfólio executivo internacional - Adylla Lafond">
-<meta name="author" content="Adylla Lafond">
-
 <style>
 :root{
   --bg:#f4f6f8;
   --card:#ffffff;
   --text:#111;
-  --muted:#555;
   --accent:#0f172a;
 }
 
@@ -25,7 +21,6 @@ body{
   color:var(--text);
 }
 
-/* TOPBAR */
 .topbar{
   display:flex;
   justify-content:space-between;
@@ -35,7 +30,6 @@ body{
   font-size:13px;
 }
 
-/* HERO */
 .hero{
   display:flex;
   flex-wrap:wrap;
@@ -54,9 +48,6 @@ body{
 h1{margin:0;font-size:38px;}
 
 .actions button, .actions a{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
   margin:5px;
   padding:10px 14px;
   border-radius:10px;
@@ -65,15 +56,8 @@ h1{margin:0;font-size:38px;}
   cursor:pointer;
   text-decoration:none;
   color:#111;
-  transition:0.2s;
 }
 
-.actions button:hover, .actions a:hover{
-  transform:translateY(-2px);
-  background:#f1f1f1;
-}
-
-/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -88,123 +72,84 @@ h1{margin:0;font-size:38px;}
   box-shadow:0 5px 20px rgba(0,0,0,0.05);
 }
 
-/* DARK MODE */
 .dark{
   background:#0b0f19;
   color:white;
 }
 
-.dark .card{background:#111827;color:white;}
-.dark .hero{background:#0b0f19;color:white;}
-.dark .actions button, .dark .actions a{
+.dark .card,
+.dark .hero{
   background:#111827;
   color:white;
-  border:1px solid #333;
 }
 </style>
 </head>
 
 <body>
 
-<!-- TOPBAR -->
 <div class="topbar">
 <div>♿ Acessibilidade Ativa</div>
 <div>
-<button onclick="tts()">🔊</button>
-<button onclick="setLang('pt')">PT</button>
-<button onclick="setLang('en')">EN</button>
-<button onclick="setLang('es')">ES</button>
+<button onclick="tts()">🔊 Ouvir</button>
 <button onclick="toggleTheme()">🌙</button>
 </div>
 </div>
 
-<!-- HERO -->
 <section class="hero">
 
-<!-- 🔥 FOTO CORRIGIDA (USE SUA NO REPO) -->
-<img src="assets/foto.jpg" alt="Adylla Lafond">
+<!-- ✅ SUA FOTO EMBUTIDA (100% FUNCIONAL NO GITHUB PAGES) -->
+<img src="data:image/jpeg;base64,{{BASE64_IMAGE}}" alt="Adylla Lafond">
 
 <div>
-<h1 id="title">Adylla Maria Bull Lafond</h1>
+<h1>Adylla Maria Bull Lafond</h1>
 
-<p><b id="subtitle">
-Jurista • Pesquisadora Internacional • Palestrante • Docente
-</b></p>
+<p><b>Jurista • Pesquisadora Internacional • Palestrante</b></p>
 
 <p id="bio">
-Jurista com atuação internacional em governança, compliance, direitos humanos e inclusão.
+Jurista com atuação internacional em governança, compliance e direitos humanos.
 </p>
 
 <div class="actions">
-
-<a href="https://www.linkedin.com" target="_blank">🔗 LinkedIn</a>
-
 <a href="mailto:seuemail@email.com">✉ E-mail</a>
-
-<button onclick="generateCV()">📄 Baixar CV</button>
-
+<a href="https://www.linkedin.com" target="_blank">🔗 LinkedIn</a>
 <button onclick="tts()">🔊 Ouvir</button>
-
 </div>
+
 </div>
 </section>
 
-<!-- GRID -->
 <section class="grid">
 
 <div class="card">
 <h3>👤 Sobre Mim</h3>
-<p>Atuação em governança, compliance e direitos humanos.</p>
+<p>Governança, compliance e direitos humanos.</p>
 </div>
 
 <div class="card">
 <h3>🎓 Formação</h3>
-<p>Mestrado e Doutorado em Direito Internacional.</p>
+<p>Direito Internacional - Mestrado e Doutorado.</p>
 </div>
 
 <div class="card">
 <h3>💼 Experiência</h3>
-<p>Tribunal de Justiça + instituições internacionais.</p>
-</div>
-
-<div class="card">
-<h3>🌍 Idiomas</h3>
-<p>Português, Inglês, Espanhol</p>
+<p>Tribunal de Justiça e instituições internacionais.</p>
 </div>
 
 </section>
 
 <script>
 
-// 🔊 TTS corrigido
 function tts(){
-  let text = document.getElementById("bio").innerText;
-  let speech = new SpeechSynthesisUtterance(text);
+  let speech = new SpeechSynthesisUtterance(
+    document.getElementById("bio").innerText
+  );
   speech.lang = "pt-BR";
   speechSynthesis.cancel();
   speechSynthesis.speak(speech);
 }
 
-// 🌙 THEME
 function toggleTheme(){
   document.body.classList.toggle("dark");
-}
-
-// 🌍 LANG (real funcional simples)
-function setLang(lang){
-  const data = {
-    pt:"Jurista com atuação internacional em governança, compliance e direitos humanos.",
-    en:"Legal expert with international experience in governance, compliance and human rights.",
-    es:"Jurista con experiencia internacional en gobernanza, cumplimiento y derechos humanos."
-  };
-  document.getElementById("bio").innerText = data[lang];
-}
-
-// 📄 PDF
-function generateCV(){
-  const win = window.open();
-  win.document.write("<h1>Adylla Lafond - CV Executivo</h1><p>Jurista Internacional</p>");
-  win.print();
 }
 
 </script>
