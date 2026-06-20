@@ -3,282 +3,255 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adylla Lafond | Executive Portfolio</title>
+<title>Adylla Lafond | Executive Portfolio 3.0</title>
 
 <style>
 :root{
-  --bg:#f5f6f8;
+  --bg:#f4f6fb;
   --card:#ffffff;
-  --text:#1f2937;
+  --text:#111827;
   --muted:#6b7280;
-  --accent:#111827;
-  --soft:#e5e7eb;
+  --accent:#0f172a;
+  --gold:#b08968;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui;}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui, Arial;
+}
 
 body{
-  background:var(--bg);
+  background:linear-gradient(135deg,#eef2ff,#f8fafc);
   color:var(--text);
+  line-height:1.6;
 }
 
-/* ACCESSIBILITY BAR */
-.access-bar{
+/* TOP BAR */
+.topbar{
+  background:#0f172a;
+  color:#fff;
   display:flex;
   justify-content:space-between;
   padding:10px 20px;
-  background:#111827;
-  color:white;
-  font-size:14px;
+  font-size:13px;
 }
-
-button{
-  cursor:pointer;
-}
-
-/* HEADER */
-header{
-  display:flex;
-  justify-content:space-between;
-  padding:20px;
-  align-items:center;
-}
-
-.nav button{
-  margin:0 5px;
-  border:none;
-  background:none;
-  font-weight:500;
-  color:var(--text);
-}
-
-/* SKIP LINK */
-.skip{
-  position:absolute;
-  top:-40px;
-  left:10px;
-  background:#000;
-  color:#fff;
-  padding:8px;
-}
-.skip:focus{top:10px;}
 
 /* HERO */
 .hero{
   display:grid;
-  grid-template-columns:1fr 2fr;
-  gap:30px;
-  padding:40px;
+  grid-template-columns:1fr 1.6fr;
+  gap:40px;
+  padding:60px 10%;
   align-items:center;
 }
 
 .hero img{
   width:100%;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+  border-radius:18px;
+  box-shadow:0 25px 60px rgba(0,0,0,0.2);
+  transition:0.3s;
+}
+
+.hero img:hover{
+  transform:scale(1.02);
 }
 
 .title{
-  font-size:48px;
-  font-weight:600;
+  font-size:52px;
+  font-weight:700;
+  letter-spacing:-1px;
 }
 
 .subtitle{
   color:var(--muted);
   margin-top:10px;
+  font-size:16px;
 }
 
-/* BUTTONS */
 .actions button{
-  margin-top:20px;
   margin-right:10px;
-  padding:10px 15px;
-  border-radius:20px;
-  border:1px solid var(--soft);
-  background:white;
+  margin-top:20px;
+  padding:10px 14px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  background:#0f172a;
+  color:white;
 }
 
-/* CARDS */
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:20px;
-  padding:40px;
+  padding:40px 10%;
 }
 
 .card{
-  background:var(--card);
-  padding:20px;
-  border-radius:15px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.05);
-  transition:.3s;
+  background:rgba(255,255,255,0.9);
+  backdrop-filter:blur(10px);
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  transition:0.3s;
 }
 
 .card:hover{
   transform:translateY(-5px);
 }
 
-/* HIGH CONTRAST */
-.high-contrast{
-  background:#000 !important;
-  color:#fff !important;
+/* SECTION TITLE */
+h3{
+  margin-bottom:10px;
+  color:#0f172a;
 }
 
-.high-contrast .card{
-  background:#111 !important;
-  color:#fff !important;
+/* FOOTER */
+footer{
+  background:#0f172a;
+  color:white;
+  padding:40px 10%;
+  margin-top:40px;
+  font-size:13px;
+}
+
+/* ACCESSIBILITY */
+.access{
+  display:flex;
+  gap:10px;
+}
+
+button{
+  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
-<a class="skip" href="#main">Pular para conteúdo</a>
-
-<div class="access-bar">
-  <div>
-    ♿ Acessibilidade
+<div class="topbar">
+  <div>♿ Acessibilidade Ativa</div>
+  <div class="access">
     <button onclick="tts()">🔊 Ouvir</button>
-    <button onclick="toggleContrast()">🌓 Contraste</button>
-    <button onclick="fontUp()">A+</button>
-    <button onclick="fontDown()">A-</button>
-  </div>
-
-  <div>
-    🌐
+    <button onclick="stopSpeech()">⏹</button>
     <button onclick="setLang('pt')">PT</button>
     <button onclick="setLang('en')">EN</button>
     <button onclick="setLang('es')">ES</button>
   </div>
 </div>
 
-<header>
-  <div><strong>AL | Portfolio Executivo</strong></div>
-  <nav class="nav">
-    <button data-i18n="nav1">Sobre</button>
-    <button data-i18n="nav2">Formação</button>
-    <button data-i18n="nav3">Experiência</button>
-    <button data-i18n="nav4">Competências</button>
-    <button data-i18n="nav5">Contato</button>
-  </nav>
-</header>
-
-<main id="main">
-
 <section class="hero">
-  <img src="/mnt/data/5b887ada-757e-4a7a-8c70-4af28938d708.png" alt="Foto profissional de Adylla Lafond">
+
+  <!-- FOTO COM CHECAGEM AUTOMÁTICA -->
+  <img id="profileImg"
+       src="MINHA_FOTO.jpeg"
+       alt="Foto profissional de Adylla Lafond"
+       onerror="this.src='https://via.placeholder.com/500x600?text=Foto+Indisponível'">
 
   <div>
     <div class="title">Adylla Maria Bull Lafond</div>
+
     <div class="subtitle" data-i18n="role">
       Jurista • Pesquisadora Internacional • Palestrante • Docente
     </div>
 
     <p style="margin-top:15px" data-i18n="desc">
-      Jurista com experiência internacional em direitos fundamentais, governança e educação jurídica.
+      Jurista com atuação internacional em direitos fundamentais, governança e pesquisa acadêmica.
     </p>
 
     <div class="actions">
       <button>LinkedIn</button>
       <button>E-mail</button>
-      <button>CV</button>
+      <button>Baixar CV</button>
+      <button onclick="tts()">Ouvir Apresentação</button>
     </div>
   </div>
+
 </section>
 
 <section class="grid">
 
-<div class="card">
-<h3 data-i18n="about">Sobre Mim</h3>
-<p data-i18n="aboutText">Atuação em direito internacional, educação e governança global.</p>
-</div>
+  <div class="card">
+    <h3 data-i18n="about">Sobre Mim</h3>
+    <p data-i18n="aboutText">
+      Atuação em direito internacional, educação e governança global.
+    </p>
+  </div>
 
-<div class="card">
-<h3 data-i18n="edu">Formação</h3>
-<p>Doutorado • Mestrado • Direito</p>
-</div>
+  <div class="card">
+    <h3>Formação Acadêmica</h3>
+    <p>Doutorado • Mestrado • Direito</p>
+  </div>
 
-<div class="card">
-<h3 data-i18n="exp">Experiência</h3>
-<p>Tribunal de Justiça • Docência • Pesquisa</p>
-</div>
+  <div class="card">
+    <h3>Experiência Profissional</h3>
+    <p>Tribunal de Justiça • Docência • Pesquisa</p>
+  </div>
 
-<div class="card">
-<h3 data-i18n="skills">Competências</h3>
-<p>Compliance, LGPD, Direitos Humanos, Pesquisa</p>
-</div>
+  <div class="card">
+    <h3>Competências</h3>
+    <p>Direito Internacional • LGPD • Compliance • Pesquisa</p>
+  </div>
 
 </section>
 
-</main>
+<footer>
+  © 2025 Adylla Lafond — Portfólio Executivo
+</footer>
 
 <script>
-let fontSize = 16;
-let contrast = false;
 
 const texts = {
   pt:{
-    nav1:"Sobre", nav2:"Formação", nav3:"Experiência", nav4:"Competências", nav5:"Contato",
     role:"Jurista • Pesquisadora Internacional • Palestrante • Docente",
-    desc:"Jurista com experiência internacional em direitos fundamentais, governança e educação jurídica.",
+    desc:"Jurista com atuação internacional em direitos fundamentais, governança e pesquisa acadêmica.",
     about:"Sobre Mim",
-    aboutText:"Atuação em direito internacional, educação e governança global.",
-    edu:"Formação",
-    exp:"Experiência",
-    skills:"Competências"
+    aboutText:"Atuação em direito internacional, educação e governança global."
   },
   en:{
-    nav1:"About", nav2:"Education", nav3:"Experience", nav4:"Skills", nav5:"Contact",
     role:"Lawyer • International Researcher • Speaker • Lecturer",
-    desc:"Law professional with international experience in human rights, governance and legal education.",
+    desc:"International legal professional focused on governance and human rights.",
     about:"About Me",
-    aboutText:"Work in international law, education and global governance.",
-    edu:"Education",
-    exp:"Experience",
-    skills:"Skills"
+    aboutText:"Work in international law and global governance."
   },
   es:{
-    nav1:"Sobre mí", nav2:"Formación", nav3:"Experiencia", nav4:"Competencias", nav5:"Contacto",
-    role:"Jurista • Investigadora Internacional • Conferencista • Docente",
-    desc:"Profesional del derecho con experiencia internacional en derechos humanos y gobernanza.",
+    role:"Jurista • Investigadora • Conferencista • Docente",
+    desc:"Profesional del derecho con experiencia internacional.",
     about:"Sobre mí",
-    aboutText:"Trabajo en derecho internacional, educación y gobernanza global.",
-    edu:"Formación",
-    exp:"Experiencia",
-    skills:"Competencias"
+    aboutText:"Trabajo en derecho internacional y gobernanza global."
   }
 };
 
-let currentLang = "pt";
-
 function setLang(lang){
-  currentLang = lang;
+  document.documentElement.lang = lang;
+
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     el.innerText = texts[lang][el.getAttribute("data-i18n")];
   });
+
+  localStorage.setItem("lang", lang);
 }
 
 function tts(){
-  const text = document.querySelector("main").innerText;
-  const speech = new SpeechSynthesisUtterance(text);
-  speech.lang = currentLang === "pt" ? "pt-BR" : currentLang === "en" ? "en-US" : "es-ES";
-  speechSynthesis.speak(speech);
+  const msg = new SpeechSynthesisUtterance(document.body.innerText);
+  msg.lang = document.documentElement.lang === "pt" ? "pt-BR" :
+             document.documentElement.lang === "en" ? "en-US" : "es-ES";
+  speechSynthesis.cancel();
+  speechSynthesis.speak(msg);
 }
 
-function toggleContrast(){
-  contrast = !contrast;
-  document.body.classList.toggle("high-contrast");
+function stopSpeech(){
+  speechSynthesis.cancel();
 }
 
-function fontUp(){
-  fontSize += 1;
-  document.body.style.fontSize = fontSize + "px";
-}
+/* AUTO LOAD SETTINGS */
+window.onload = () => {
+  const lang = localStorage.getItem("lang") || "pt";
+  setLang(lang);
+};
 
-function fontDown(){
-  fontSize -= 1;
-  document.body.style.fontSize = fontSize + "px";
-}
 </script>
 
 </body>
